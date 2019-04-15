@@ -1,14 +1,15 @@
 package com.example.lar.keyboardtrainer;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,9 +54,49 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void doTestMenu(MenuItem item) {
-        TextView tt = findViewById(R.id.testText);
-        tt.setText("sett done");
+//    public void doTestMenu(MenuItem item) {
+//        TextView tt = findViewById(R.id.testText);
+//        tt.setText("sett done");
+//    }
+
+
+    public void openSettings(MenuItem item) {
+        Intent intent = new Intent(MainActivity.this,
+                SettingsActivity.class);
+        startActivity(intent);
     }
 
+    public void showAbout(MenuItem item) {
+    // ToDO add eng translation!
+        AlertDialog.Builder dialog = new
+                AlertDialog.Builder(MainActivity.this);
+        try {
+            dialog.setMessage(getTitle().toString()+ " версия "+
+                            getPackageManager().getPackageInfo(getPackageName(),0).versionName + "\r\n\nПрограмма с примером выполнения диалогового окна\r\n\n" +
+                    "Автор:\nОралин Илларион Владимирович\n ВШЭ ФКН ПИ 2 курс" +
+                    "\n\n2019");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        dialog.setTitle("О программе");
+        dialog.setNeutralButton("OK", new
+                DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        dialog.setIcon(R.mipmap.ic_launcher_round);
+        AlertDialog alertDialog = dialog.create();
+        alertDialog.show();
+//        Toast toast = Toast.makeText(getApplicationContext(),
+//                "Created by Oralin", Toast.LENGTH_SHORT);
+//        toast.show();
+    }
+
+    public void openChooseMode(View view) {
+        Intent intent = new Intent(MainActivity.this,
+                ChooseModeActivity.class);
+        startActivity(intent);
+    }
 }

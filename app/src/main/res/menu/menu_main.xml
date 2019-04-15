@@ -7,7 +7,7 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"
-        android:onClick="doTestMenu"
+        android:onClick="openSettings"
         android:icon="@android:drawable/ic_menu_preferences"
         />
 
@@ -16,6 +16,7 @@
         android:orderInCategory="100"
         android:title="@string/about"
         app:showAsAction="ifRoom"
+        android:onClick="showAbout"
         android:icon="@android:drawable/ic_dialog_info"
         />
 </menu>
