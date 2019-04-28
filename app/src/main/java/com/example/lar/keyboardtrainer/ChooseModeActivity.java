@@ -18,4 +18,10 @@ public class ChooseModeActivity extends AppCompatActivity {
                 EnterTextActivity.class);
         startActivity(intent);
     }
+
+    public void startCharPractice(View view) {
+        Intent intent = new Intent(ChooseModeActivity.this,
+                EnterTextActivity.class);
+        startActivity(intent);
+    }
 }
