@@ -11,15 +11,18 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);ButterKnife.bind(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 AlertDialog.Builder(MainActivity.this);
         try {
             dialog.setMessage(getTitle().toString()+ " версия "+
-                            getPackageManager().getPackageInfo(getPackageName(),0).versionName + "\r\n\nПрограмма с примером выполнения диалогового окна\r\n\n" +
+                            getPackageManager().getPackageInfo(getPackageName(),0).versionName + "\r\n\n" +
                     "Автор:\nОралин Илларион Владимирович\n ВШЭ ФКН ПИ 2 курс" +
                     "\n\n2019");
         } catch (PackageManager.NameNotFoundException e) {
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 //        toast.show();
     }
 
+    @OnClick(R.id.buttonPlay)
     public void openChooseMode(View view) {
         Intent intent = new Intent(MainActivity.this,
                 ChooseModeActivity.class);

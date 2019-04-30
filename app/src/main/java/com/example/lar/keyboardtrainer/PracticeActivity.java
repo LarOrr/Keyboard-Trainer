@@ -9,11 +9,17 @@ import android.widget.TextView;
 
 import java.util.Random;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PracticeActivity extends AppCompatActivity {
+
+    @BindView(R.id.editTextType)
     EditText editTextType;
+    @BindView(R.id.textCurrentText)
     TextView textCurrentText;
     String currentText;
-    Random rnd;
+    Random rnd = new Random();;
     int correctChars = 0;
     int totalChars = 0;
 
@@ -21,35 +27,7 @@ public class PracticeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
-        editTextType = (EditText) findViewById(R.id.editTextType);
-        textCurrentText = (TextView) findViewById(R.id.textCurrentText);
-        rnd = new Random();
-
-
-        TextWatcher tw = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(s.equals("")) {
-                    return;
-                }
-                String typedText = editTextType.getText().toString();
-                if(typedText.equals(currentText)){
-                    editTextType.setText("");
-
-                }
-            }
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        };
-
-        editTextType.addTextChangedListener(tw);
+        ButterKnife.bind(this);
     }
 
 

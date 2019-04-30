@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import butterknife.OnClick;
+
 public class ChooseModeActivity extends AppCompatActivity {
 
     @Override
@@ -13,15 +15,17 @@ public class ChooseModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_choose_mode);
     }
 
+    @OnClick(R.id.buttonEnterText)
     public void openEnterText(View view) {
         Intent intent = new Intent(ChooseModeActivity.this,
                 EnterTextActivity.class);
         startActivity(intent);
     }
 
+    @OnClick(R.id.buttonCharPractice)
     public void startCharPractice(View view) {
         Intent intent = new Intent(ChooseModeActivity.this,
-                EnterTextActivity.class);
+                CharPracticeActivity.class);
         startActivity(intent);
     }
 }
