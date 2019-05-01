@@ -1,46 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:id="@+id/llMainLayout"
+    android:focusable="true" android:focusableInTouchMode="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PracticeActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="2dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-            <TextView android:text="Correct" android:textAlignment="center" style="@style/tv1"/>
-            <TextView android:text="Wrong" android:textAlignment="center" style="@style/tv1" />
-            <TextView android:text="Accuracy" android:textAlignment="center" style="@style/tv1" />
-            <TextView android:text="Speed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv1"/>
-        </LinearLayout>
-        <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="3dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-            <TextView android:id="@+id/tvRightWordCount" android:textAlignment="center" style="@style/tv2blue"/>
-            <TextView android:id="@+id/tvWrongWordCount" android:textAlignment="center" style="@style/tv2red"/>
-            <TextView android:id="@+id/tvShowAccuracy" android:textAlignment="center" style="@style/tv2blue"/>
-            <TextView android:id="@+id/tvShowSpeed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv2blue"/>
-        </LinearLayout>
-    </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="2dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:text="Correct" android:textAlignment="center" style="@style/tv1"/>
+                <TextView android:text="Wrong" android:textAlignment="center" style="@style/tv1"/>
+                <TextView android:text="Accuracy" android:textAlignment="center" style="@style/tv1"/>
+                <TextView android:text="Speed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv1"/>
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="3dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                <TextView android:id="@+id/tvCorrectCharacterCount" android:textAlignment="center" style="@style/tv2blue"/>
+                <TextView android:id="@+id/tvWrongCharacterCount" android:textAlignment="center" style="@style/tv2red"/>
+                <TextView android:id="@+id/tvShowAccuracy" android:textAlignment="center" style="@style/tv2blue"/>
+                <TextView android:id="@+id/tvShowSpeed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv2blue"/>
+            </LinearLayout>
+            <!--<TextView android:textStyle="italic" android:gravity="end" android:id="@+id/tvInfoContent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Information"/>-->
 
-    <TextView
-        android:id="@+id/textCurrentText"
-        android:layout_width="138dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="172dp"
-        android:text="TextView"
-        android:textSize="44sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tvCurrentText"
+                style="@style/wMPhWC"
+                android:layout_marginTop="2dp"
+                android:text="Current text"
+                android:textAlignment="center"
+                android:textColor="@color/defTextColor"
+                android:textSize="50sp"
+                android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/editTextType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Type"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textCurrentText" />
-</android.support.constraint.ConstraintLayout>
+            <EditText
+                android:id="@+id/etUserInput"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:hint="Type here"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="30sp" />
+
+</LinearLayout>

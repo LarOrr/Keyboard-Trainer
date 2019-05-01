@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ChooseModeActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class ChooseModeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_mode);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.buttonEnterText)
@@ -22,7 +24,7 @@ public class ChooseModeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @OnClick(R.id.buttonCharPractice)
+    @OnClick(R.id.buttonStartCharPractice)
     public void startCharPractice(View view) {
         Intent intent = new Intent(ChooseModeActivity.this,
                 CharPracticeActivity.class);

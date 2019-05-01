@@ -51,5 +51,8 @@
         <item name="android:text">0</item>
         <item name="android:layout_weight">1.0</item>
     </style>
-
+    <style name="wMPhWC">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

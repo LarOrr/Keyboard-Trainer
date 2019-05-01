@@ -2,8 +2,6 @@ package com.example.lar.keyboardtrainer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,12 +12,21 @@ import butterknife.ButterKnife;
 
 public class PracticeActivity extends AppCompatActivity {
 
-    @BindView(R.id.editTextType)
-    EditText editTextType;
-    @BindView(R.id.textCurrentText)
-    TextView textCurrentText;
+    @BindView(R.id.etUserInput)
+    EditText etUserInput;
+    @BindView(R.id.tvCurrentText)
+    TextView tvCurrentText;
+    @BindView(R.id.tvCorrectCharacterCount)
+    TextView tvCorrectCharacterCount;
+    @BindView(R.id.tvWrongCharacterCount)
+    TextView tvWrongCharacterCount;
+    @BindView(R.id.tvShowAccuracy)
+    TextView tvShowAccuracy;
+    @BindView(R.id.tvShowSpeed)
+    TextView tvShowSpeed;
     String currentText;
-    Random rnd = new Random();;
+    char currentChar;
+    Random rnd = new Random();
     int correctChars = 0;
     int totalChars = 0;
 
@@ -27,7 +34,7 @@ public class PracticeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
-        ButterKnife.bind(this);
+        //ButterKnife.bind(this);
     }
 
 
