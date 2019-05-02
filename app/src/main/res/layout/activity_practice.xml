@@ -12,17 +12,17 @@
                 <TextView android:text="Speed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv1"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="3dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:id="@+id/tvCorrectCharacterCount" android:textAlignment="center" style="@style/tv2blue"/>
+                <TextView android:id="@+id/tvCorrectCharacterCount" android:textAlignment="center" style="@style/tv2colorAccent"/>
                 <TextView android:id="@+id/tvWrongCharacterCount" android:textAlignment="center" style="@style/tv2red"/>
-                <TextView android:id="@+id/tvShowAccuracy" android:textAlignment="center" style="@style/tv2blue"/>
-                <TextView android:id="@+id/tvShowSpeed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv2blue"/>
+                <TextView android:id="@+id/tvShowAccuracy" android:textAlignment="center" style="@style/tv2colorAccent"/>
+                <TextView android:id="@+id/tvShowSpeed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv2colorAccent"/>
             </LinearLayout>
             <!--<TextView android:textStyle="italic" android:gravity="end" android:id="@+id/tvInfoContent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Information"/>-->
 
             <TextView
                 android:id="@+id/tvCurrentText"
                 style="@style/wMPhWC"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="10dp"
                 android:text="Current text"
                 android:textAlignment="center"
                 android:textColor="@color/defTextColor"
@@ -36,8 +36,23 @@
                 android:layout_gravity="center"
                 android:hint="Type here"
                 android:imeOptions="actionDone"
-                android:inputType="text"
+                android:inputType="textNoSuggestions"
                 android:textAlignment="center"
                 android:textSize="30sp" />
+
+            <LinearLayout android:orientation="vertical" android:id="@+id/llAnalysis" android:layout_marginTop="10dp" style="@style/wMPhWC">
+                <android.support.v7.widget.CardView android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="5dp">
+                    <LinearLayout android:orientation="vertical" android:background="#ffffff" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="22dp" android:textColor="@color/colorPrimary" android:text="Original Text:" android:textAlignment="center" style="@style/wMPhWC"/>
+                        <TextView android:textSize="21dp" android:textColor="#333" android:id="@+id/tvOriginalString" android:scrollbars="vertical" android:hint="Original Text" android:maxLines="3" android:fadeScrollbars="false" android:textAlignment="center" style="@style/wMPhWC"/>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="20dp">
+                    <LinearLayout android:orientation="vertical" android:background="#ffffff" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+                        <TextView android:textSize="22dp" android:textColor="@color/colorPrimary" android:text="Typed Text:" android:textAlignment="center" style="@style/wMPhWC"/>
+                        <TextView android:textSize="21dp" android:textColor="#333" android:id="@+id/tvEnteredString" android:scrollbars="vertical" android:hint="Original Text" android:maxLines="3" android:fadeScrollbars="false" android:textAlignment="center" style="@style/wMPhWC"/>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
 
 </LinearLayout>

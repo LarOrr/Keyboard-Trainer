@@ -13,7 +13,7 @@
     <string-array name="entries_lang">
         <item>Default</item>
         <item>English</item>
-        <item>Russian</item>
+        <item>Русский</item>
     </string-array>
     <string-array name="entryvalues_lang">
         <item>default</item>

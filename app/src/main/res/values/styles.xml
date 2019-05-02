@@ -27,7 +27,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1.0</item>
     </style>
-    <style name="tv2blue">
+    <style name="tv2colorAccent">
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorAccent</item>
@@ -54,5 +54,11 @@
     <style name="wMPhWC">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="selectButton">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">76dp</item>
+        <item name="android:textSize">30sp</item>
     </style>
 </resources>
