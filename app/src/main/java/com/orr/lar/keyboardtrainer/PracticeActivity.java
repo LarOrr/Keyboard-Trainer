@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -11,6 +13,8 @@ import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.OnFocusChange;
 
 public class PracticeActivity extends AppCompatActivity {
 
@@ -35,7 +39,7 @@ public class PracticeActivity extends AppCompatActivity {
     String currentText;
     SharedPreferences appPref;
     char currentChar;
-    Random rnd = new Random();
+    Random random = new Random();
     int correctChars = 0;
     int totalChars = 0;
 
@@ -44,11 +48,23 @@ public class PracticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
         ButterKnife.bind(this);
-
+        etUserInput.requestFocus();
+//        etUserInput.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
         appPref = getApplicationContext().getSharedPreferences(getString(R.string.APP_PREFS), Context.MODE_PRIVATE);
         language = appPref.getString(getString(R.string.train_lang), "en");
-//        language =
+
     }
 
-
+//    @OnClick(R.id.etUserInput)
+//    public void onClickUserInput(View view) {
+//        //Cursor always at the end
+//        etUserInput.setSelection(etUserInput.getText().length());
+//    }
+//    @OnFocusChange(R.id.etUserInput)
+//    public void onFocusChangeUserInput(View view, boolean hasFocus) {
+//        //Cursor always at the end
+//        //todo
+////        if(hasFocus)
+//            etUserInput.setSelection(etUserInput.getText().length());
+//    }
 }

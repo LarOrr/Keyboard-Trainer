@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.UnderlineSpan;
 
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
@@ -51,21 +56,8 @@ public class CharPracticeActivity extends PracticeActivity {
                 break;
         }
         generateNextChar();
-//        TextWatcher tw = new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                charInputed(s, start, before,count);
-//            }
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//
-//            }
-//        };
-//        etUserInput.addTextChangedListener(tw);
+        //As it doesn't work in superclass somehow
+        etUserInput.requestFocus();
     }
 
     //CharSequence s, int start, int before, int count
@@ -77,29 +69,22 @@ public class CharPracticeActivity extends PracticeActivity {
         totalChars++;
         if(text.charAt(0) == currentChar){
             correctChars++;
-        } //else just totalChars++
+            tvEnteredString.append(text);
+            tvEnteredString.append(" ");
+        } else {
+            Spannable coloredText = new SpannableString(text);
+            coloredText.setSpan(new ForegroundColorSpan(Color.RED), 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            tvEnteredString.append(coloredText);
+            tvEnteredString.append(" ");
+        }
+        tvOriginalString.append(String.valueOf(currentChar) + " ");
         generateNextChar();
-//        tvCurrentText.setText(generateNextChar());
         updateTable();
         //At the end to not trigger charInputed again!!!
         //Waits 275 millisecs before deleting the text
         (new Handler()).postDelayed(() -> {
             etUserInput.setText("");
         }, 200);
-
-
-//        if(s.length() == 0)
-//            return;
-//
-//        totalChars++;
-//        if(s.charAt(0) == currentChar){
-//            correctChars++;
-//        } //else just totalChars++
-//        generateNextChar();
-////        tvCurrentText.setText(generateNextChar());
-//        updateTable();
-//        //At the end to not trigger charInputed again!!!
-//        s.clear();
     }
 
     @SuppressLint("SetTextI18n")
@@ -113,16 +98,14 @@ public class CharPracticeActivity extends PracticeActivity {
         //TODO ideya - vmesto speed time + speed перед выходом в диалоге
     }
 
-    char generateNextChar() {
-        //TODO add numbers?
-        currentChar = (char)(alphabet.firstLetter + rnd.nextInt(alphabet.size));
+    void generateNextChar() {
+        currentChar = (char)(alphabet.firstLetter + random.nextInt(alphabet.size));
         tvCurrentText.setText(Character.toString(currentChar));
         setRandomColor();
-        return currentChar;
     }
 
     void setRandomColor() {
-        int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
         tvCurrentText.setTextColor(color);
     }
 }
