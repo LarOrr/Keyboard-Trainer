@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp">
 
-                <Spinner android:id="@+id/spLanguages"
+                <Spinner android:id="@+id/spStatLang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dropdown"
@@ -50,32 +50,79 @@
             <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <TextView android:background="@drawable/placeholder_rev" android:layout_width="20dp" android:layout_height="match_parent"/>
                 <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:textColor="@color/white" android:background="@color/darkGray" android:padding="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Choose mode"/>
+                    android:text="Statistics"/>
                 <TextView android:background="@drawable/placeholder" android:layout_width="20dp" android:layout_height="match_parent"/>
             </LinearLayout>
-        <Button
-            style="@style/selectButton"
-            android:id="@+id/buttonStartCharPractice"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_letter_48dp"
-            android:text="Letters"
-            />
 
-        <Button
-            style="@style/selectButton"
-            android:id="@+id/buttonStartWordPractice"
-            android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_keyboard_48dp"
-            android:text="Words"
-            />
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total characters entered: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/totalChar"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
 
-            <Button
-                style="@style/selectButton"
-                android:id="@+id/buttonEnterText"
-                android:layout_gravity="center"
-                android:text="@string/enter_text"
-                />
-            <!--android:background="@drawable/textview_border"-->
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total correct characters: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/correctChar"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total words: "
+                    style="@style/statText" />
+                <TextView
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Correct words: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/totalWords"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total time in practice: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/correctWords"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Record speed in char mode: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/recordSpeedCharMode"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Record speed in word mode: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/recordSpeedWordMode"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
         </LinearLayout>
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 </LinearLayout>

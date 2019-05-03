@@ -6,4 +6,19 @@
     <string name="APP_PREFS">app_preference</string>
     <string name="train_lang">train_lang</string>
     <string name="train_lang_numb">train_lang_sp_pos</string>
+
+    <string name="STATs_PREFS">stat_preference</string>
+
+    <string name="correct_chars_all">correct_chars_all</string>
+    <string name="total_chars_all">total_chars_all</string>
+    <string name="correct_words">correct_words</string>
+    <string name="total_words">total_words</string>
+
+    <string name="correct_chars_mode">correct_chars_mode</string>
+    <string name="total_chars_mode">total_chars_mode</string>
+
+    <string name="total_time_char_mode">total_time_char_mode</string>
+    <string name="total_time_word_mode">total_time_word_mode</string>
+    <string name="record_speed_char_mode">record_speed_char_mode</string>
+    <string name="record_speed_word_mode">record_speed_word_mode</string>
 </resources>

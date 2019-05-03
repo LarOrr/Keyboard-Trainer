@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
         <activity
-            android:name="com.orr.lar.keyboardtrainer.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,13 +23,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.orr.lar.keyboardtrainer.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name="com.orr.lar.keyboardtrainer.ChooseModeActivity" />
-        <activity android:name="com.orr.lar.keyboardtrainer.EnterTextActivity" />
-        <activity android:name="com.orr.lar.keyboardtrainer.PracticeActivity" />
-        <activity android:name="com.orr.lar.keyboardtrainer.CharPracticeActivity" />
-        <activity android:name="com.orr.lar.keyboardtrainer.WordPracticeActivity"></activity>
+        <activity android:name=".ChooseModeActivity" />
+        <activity android:name=".EnterTextActivity" />
+        <activity android:name=".PracticeActivity" />
+        <activity android:name=".CharPracticeActivity" />
+        <activity android:name=".WordPracticeActivity" />
+        <activity android:name=".StatisticsActivity"></activity>
     </application>
 
 </manifest>

@@ -8,8 +8,9 @@
         android:title="@string/action_settings"
         app:showAsAction="ifRoom"
         android:onClick="openSettings"
-        android:icon="@android:drawable/ic_menu_preferences"
-        />
+        android:icon="@drawable/ic_settings_white_48dp"
+        android:visible="false"/>
+        <!--Isn't in use-->
 
     <item
         android:id="@+id/about"

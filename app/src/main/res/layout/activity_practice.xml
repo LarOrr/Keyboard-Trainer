@@ -17,7 +17,16 @@
                 <TextView android:id="@+id/tvShowAccuracy" android:textAlignment="center" style="@style/tv2colorAccent"/>
                 <Chronometer android:id="@+id/chrTime" android:layout_weight="1.1" android:textAlignment="center" style="@style/tv2colorAccent"/>
             </LinearLayout>
-            <!--<TextView android:textStyle="italic" android:gravity="end" android:id="@+id/tvInfoContent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Information"/>-->
+
+            <TextView android:textStyle="italic"
+                android:gravity="end"
+                android:id="@+id/tvInfoContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:text="Press space to move to the next word "/>
 
     <TextView
         android:id="@+id/tvCurrentText"

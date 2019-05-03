@@ -55,6 +55,7 @@ public class CharPracticeActivity extends PracticeActivity {
                 break;
         }
         generateNextChar();
+        tvInfoContent.setText("");
         //As it doesn't work in superclass somehow
         etUserInput.requestFocus();
     }

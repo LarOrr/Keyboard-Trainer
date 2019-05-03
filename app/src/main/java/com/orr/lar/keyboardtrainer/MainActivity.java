@@ -96,4 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 ChooseModeActivity.class);
         startActivity(intent);
     }
+
+    @OnClick(R.id.buttonStats)
+    public void openStats(View view) {
+        Intent intent = new Intent(MainActivity.this,
+                StatisticsActivity.class);
+        startActivity(intent);
+    }
 }

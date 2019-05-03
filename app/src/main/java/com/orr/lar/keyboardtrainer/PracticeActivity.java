@@ -48,6 +48,8 @@ public class PracticeActivity extends AppCompatActivity {
     TextView tvOriginalString;
     @BindView(R.id.tvEnteredString)
     TextView tvEnteredString;
+    @BindView(R.id. tvInfoContent)
+    TextView tvInfoContent;
 
     boolean isChronometerRunning = false;
     String language;
