@@ -2,12 +2,13 @@ package com.orr.lar.keyboardtrainer.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.ActionMode;
 
 public class CustomEditText extends android.support.v7.widget.AppCompatEditText {
 
-
     public CustomEditText(Context context) {
         super(context);
+
     }
 
     public CustomEditText(Context context, AttributeSet attrs) {

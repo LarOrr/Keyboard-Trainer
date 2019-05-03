@@ -10,7 +10,6 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
-import android.text.style.UnderlineSpan;
 
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
@@ -20,7 +19,7 @@ import static butterknife.OnTextChanged.Callback.AFTER_TEXT_CHANGED;
 //TODO inher
 public class CharPracticeActivity extends PracticeActivity {
     static final float TEXT_SIZE = 50;
-    char currentChar;
+//    char currentChar;
     Alphabet alphabet;
     enum Alphabet{
         RUSSIAN(32, 'а'),
@@ -60,24 +59,28 @@ public class CharPracticeActivity extends PracticeActivity {
         etUserInput.requestFocus();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     //CharSequence s, int start, int before, int count
     @OnTextChanged(value = R.id.etUserInput, callback = AFTER_TEXT_CHANGED)
     void charInputed(Editable s){
+        if(!isChronometerRunning){
+            startChronometer();
+        }
+
         String text = etUserInput.getText().toString();
         if(text.length() == 0)
             return;
         totalChars++;
-        if(text.charAt(0) == currentChar){
+        if(text.charAt(0) == currentText.charAt(0)){
             correctChars++;
-            tvEnteredString.append(text);
-            tvEnteredString.append(" ");
+            addTextToHistory(true, text);
         } else {
-            Spannable coloredText = new SpannableString(text);
-            coloredText.setSpan(new ForegroundColorSpan(Color.RED), 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            tvEnteredString.append(coloredText);
-            tvEnteredString.append(" ");
+            addTextToHistory(false, text);
         }
-        tvOriginalString.append(String.valueOf(currentChar) + " ");
         generateNextChar();
         updateTable();
         //At the end to not trigger charInputed again!!!
@@ -87,25 +90,29 @@ public class CharPracticeActivity extends PracticeActivity {
         }, 200);
     }
 
+
     @SuppressLint("SetTextI18n")
+    @Override
     void updateTable() {
-        tvWrongCharacterCount.setText(Integer.toString(totalChars - correctChars));
-        tvCorrectCharacterCount.setText(Integer.toString(correctChars));
-        //TODO?
+        tvWrongWordsCount.setText(Integer.toString(totalChars - correctChars));
+        tvCorrectWordsCount.setText(Integer.toString(correctChars));
         String acc = Integer.toString((int)(100 * ((double)correctChars / totalChars))) + "%";
         tvShowAccuracy.setText(acc);
-        //TODO speed + timer
         //TODO ideya - vmesto speed time + speed перед выходом в диалоге
     }
 
     void generateNextChar() {
-        currentChar = (char)(alphabet.firstLetter + random.nextInt(alphabet.size));
-        tvCurrentText.setText(Character.toString(currentChar));
+        currentText = Character.toString((char)(alphabet.firstLetter + random.nextInt(alphabet.size)));
+        tvCurrentText.setText(currentText);
         setRandomColor();
     }
 
     void setRandomColor() {
-        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+//        int color = Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        //220 to make color not too light
+        int colorBorder = 220;
+        int color = Color.argb(255, random.nextInt(colorBorder), random.nextInt(colorBorder), random.nextInt(colorBorder));
         tvCurrentText.setTextColor(color);
     }
+
 }

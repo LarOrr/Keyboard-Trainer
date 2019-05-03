@@ -9,25 +9,25 @@
                 <TextView android:text="Correct" android:textAlignment="center" style="@style/tv1"/>
                 <TextView android:text="Wrong" android:textAlignment="center" style="@style/tv1"/>
                 <TextView android:text="Accuracy" android:textAlignment="center" style="@style/tv1"/>
-                <TextView android:text="Speed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv1"/>
+                <TextView android:text="Time" android:layout_weight="1.1" android:textAlignment="center" style="@style/tv1"/>
             </LinearLayout>
             <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="3dp" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:id="@+id/tvCorrectCharacterCount" android:textAlignment="center" style="@style/tv2colorAccent"/>
-                <TextView android:id="@+id/tvWrongCharacterCount" android:textAlignment="center" style="@style/tv2red"/>
+                <TextView android:id="@+id/tvCorrectWordsCount" android:textAlignment="center" style="@style/tv2colorAccent"/>
+                <TextView android:id="@+id/tvWrongWordsCount" android:textAlignment="center" android:textColor="@color/red" style="@style/tv2colorAccent"/>
                 <TextView android:id="@+id/tvShowAccuracy" android:textAlignment="center" style="@style/tv2colorAccent"/>
-                <TextView android:id="@+id/tvShowSpeed" android:layout_weight="1.32" android:textAlignment="center" style="@style/tv2colorAccent"/>
+                <Chronometer android:id="@+id/chrTime" android:layout_weight="1.1" android:textAlignment="center" style="@style/tv2colorAccent"/>
             </LinearLayout>
             <!--<TextView android:textStyle="italic" android:gravity="end" android:id="@+id/tvInfoContent" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="2dp" android:text="Information"/>-->
 
-            <TextView
-                android:id="@+id/tvCurrentText"
-                style="@style/wMPhWC"
-                android:layout_marginTop="10dp"
-                android:text="Current text"
-                android:textAlignment="center"
-                android:textColor="@color/defTextColor"
-                android:textSize="50sp"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tvCurrentText"
+        style="@style/wMPhWC"
+        android:layout_marginTop="10dp"
+        android:text="Current text"
+        android:textAlignment="center"
+        android:textColor="@color/defTextColor"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <com.orr.lar.keyboardtrainer.views.CustomEditText
         android:id="@+id/etUserInput"
