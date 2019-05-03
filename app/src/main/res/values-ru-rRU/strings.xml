@@ -1,10 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Keyboard Trainer</string>
-    <string name="action_settings">Настройки</string>
-    <string name="practice">Запуск</string>
-    <string name="about">О программе</string>
-    <string name="LangTitle">Язык</string>
-    <string name="LangDialogTitle">Выберите язык:</string>
-    <string name="LangSummary">Язык приложения.\nНеобходимо перезапустить приложение для принятия изменений.</string>
 </resources>

@@ -67,14 +67,18 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder dialog = new
                 AlertDialog.Builder(MainActivity.this);
         try {
-            dialog.setMessage(getTitle().toString()+ " версия "+
+//            dialog.setMessage(getTitle().toString()+ " версия "+
+//                            getPackageManager().getPackageInfo(getPackageName(),0).versionName + "\r\n\n" +
+//                    "Автор:\nОралин Илларион Владимирович\n ВШЭ ФКН ПИ 2 курс" +
+//                    "\n\n2019");
+            dialog.setMessage(getTitle().toString()+ " ver "+
                             getPackageManager().getPackageInfo(getPackageName(),0).versionName + "\r\n\n" +
-                    "Автор:\nОралин Илларион Владимирович\n ВШЭ ФКН ПИ 2 курс" +
-                    "\n\n2019");
+                    "Developer:\nIllarion Oralin\nHSE FCS\nSoftware Engineering 2nd course" +
+                    "\n\n       2019");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        dialog.setTitle("О программе");
+        dialog.setTitle("About");
         dialog.setNeutralButton("OK", new
                 DialogInterface.OnClickListener() {
                     @Override

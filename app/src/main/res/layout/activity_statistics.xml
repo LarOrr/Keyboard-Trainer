@@ -76,16 +76,27 @@
 
             <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
                 <TextView
-                    android:text="Total words: "
+                    android:text="Total chars in char mode: "
                     style="@style/statText" />
                 <TextView
+                    android:id="@+id/totalCharMode"
                     android:text="0"
                     style="@style/statValue" />
             </LinearLayout>
 
             <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
                 <TextView
-                    android:text="Correct words: "
+                    android:text="Correct chars in char mode: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/correctCharMode"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total words: "
                     style="@style/statText" />
                 <TextView
                     android:id="@+id/totalWords"
@@ -95,10 +106,31 @@
 
             <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
                 <TextView
-                    android:text="Total time in practice: "
+                    android:text="Correct words: "
                     style="@style/statText" />
                 <TextView
                     android:id="@+id/correctWords"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total time in char mode: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/timeCharMode"
+                    android:text="0"
+                    style="@style/statValue" />
+            </LinearLayout>
+
+
+            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                <TextView
+                    android:text="Total time in word mode: "
+                    style="@style/statText" />
+                <TextView
+                    android:id="@+id/timeWordMode"
                     android:text="0"
                     style="@style/statValue" />
             </LinearLayout>

@@ -1,15 +1,9 @@
 package com.orr.lar.keyboardtrainer;
 
 import android.content.res.AssetManager;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Editable;
-import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,8 +18,6 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
 
-import static butterknife.OnTextChanged.Callback.AFTER_TEXT_CHANGED;
-
 public class WordPracticeActivity extends PracticeActivity {
     //Words from file
     List<String> wordList;
@@ -35,6 +27,7 @@ public class WordPracticeActivity extends PracticeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
+        practiceModeName = getString(R.string.word_mode_short_name);
         tvCurrentText.setTextSize(40);
         etUserInput.setTextSize(24);
         extractWords();
@@ -90,8 +83,6 @@ public class WordPracticeActivity extends PracticeActivity {
 
         //Next word
         if(text.charAt(len - 1) == ' '){
-            //todo correct
-
             totalChars += len - 1;
             totalWords++;
             //If correct

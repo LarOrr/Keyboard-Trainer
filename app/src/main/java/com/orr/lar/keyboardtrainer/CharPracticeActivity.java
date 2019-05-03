@@ -6,19 +6,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.InputFilter;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
 
 import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
 
 import static butterknife.OnTextChanged.Callback.AFTER_TEXT_CHANGED;
 
-//TODO inher
 public class CharPracticeActivity extends PracticeActivity {
     static final float TEXT_SIZE = 50;
+    static final long WAIT_TIME = 120;
 //    char currentChar;
     Alphabet alphabet;
     enum Alphabet{
@@ -38,6 +34,7 @@ public class CharPracticeActivity extends PracticeActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_practice);
         ButterKnife.bind(this);
+        practiceModeName = getString(R.string.chars_mode_short_name);
         tvCurrentText.setTextSize(TEXT_SIZE);
         //setMaxLength programmatically
         tvCurrentText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(1)});
@@ -76,8 +73,10 @@ public class CharPracticeActivity extends PracticeActivity {
         if(text.length() == 0)
             return;
         totalChars++;
+        totalWords++;
         if(text.charAt(0) == currentText.charAt(0)){
             correctChars++;
+            correctWords++;
             addTextToHistory(true, text);
         } else {
             addTextToHistory(false, text);
@@ -88,7 +87,7 @@ public class CharPracticeActivity extends PracticeActivity {
         //Waits 275 millisecs before deleting the text
         (new Handler()).postDelayed(() -> {
             etUserInput.setText("");
-        }, 200);
+        }, WAIT_TIME);
     }
 
 
@@ -99,7 +98,11 @@ public class CharPracticeActivity extends PracticeActivity {
         tvCorrectWordsCount.setText(Integer.toString(correctChars));
         String acc = Integer.toString((int)(100 * ((double)correctChars / totalChars))) + "%";
         tvShowAccuracy.setText(acc);
-        //TODO ideya - vmesto speed time + speed перед выходом в диалоге
+    }
+
+    @Override
+    void saveStats() {
+        super.saveStats();
     }
 
     void generateNextChar() {
