@@ -35,14 +35,13 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView totalCharMode;
     @BindView(R.id.correctCharMode)
     TextView correctCharMode;
-
-    String[] trainLangValues;
-    String language;
-    SharedPreferences statPref;
     @BindView(R.id.timeCharMode)
     TextView timeCharMode;
     @BindView(R.id.timeWordMode)
     TextView timeWordMode;
+
+    String language;
+    SharedPreferences statPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,7 @@ public class StatisticsActivity extends AppCompatActivity {
     @OnItemSelected(R.id.spStatLang)
     public void languageChanged(AdapterView<?> parentView, View selectedItemView, int position, long id) {
         int pos = spStatLang.getSelectedItemPosition();
-        trainLangValues = getResources().getStringArray(R.array.train_lang_val);
+        String[] trainLangValues = getResources().getStringArray(R.array.train_lang_val);
         // Might be "en", "ru" etc
         language = String.valueOf(trainLangValues[pos]);
         updateTable();
@@ -71,7 +70,8 @@ public class StatisticsActivity extends AppCompatActivity {
         totalChar.setText(String.valueOf(statPref.getInt(str, 0)));
 
         //Mode
-
+        updateCharMode();
+        updateWordsMode();
     }
 
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
@@ -84,9 +84,28 @@ public class StatisticsActivity extends AppCompatActivity {
         totalCharMode.setText(String.valueOf(statPref.getInt(str, 0)));
 
         str = language + "_" + getString(R.string.total_time_mode) + "_" + practiceModeName;
-        timeCharMode.setText(String.valueOf((double) statPref.getLong(str, 0) / 1000 / 60) + " minutes");
+//        timeCharMode.setText(String.valueOf((double) statPref.getLong(str, 0) / 1000 / 60) + " minutes");
+        long millsec = statPref.getLong(str, 0);
+        timeCharMode.setText(String.valueOf(millsec / 1000 / 60) + ":" + String.valueOf(millsec / 1000 % 60));
 
         str = language + "_" + getString(R.string.record_speed_mode) + "_" + practiceModeName;
         recordSpeedCharMode.setText(String.format("%.2f", statPref.getFloat(str, 0)));
+    }
+
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
+    void updateWordsMode() {
+        String practiceModeName = getString(R.string.word_mode_short_name);
+        String str = language + "_" + getString(R.string.correct_ans_mode) + "_" + practiceModeName;
+        correctWords.setText(String.valueOf(statPref.getInt(str, 0)));
+
+        str = language + "_" + getString(R.string.total_ans_mode) + "_" + practiceModeName;
+        totalWords.setText(String.valueOf(statPref.getInt(str, 0)));
+
+        str = language + "_" + getString(R.string.total_time_mode) + "_" + practiceModeName;
+        long millsec = statPref.getLong(str, 0);
+        timeWordMode.setText(String.valueOf(millsec / 1000 / 60) + ":" + String.valueOf(millsec / 1000 % 60));
+
+        str = language + "_" + getString(R.string.record_speed_mode) + "_" + practiceModeName;
+        recordSpeedWordMode.setText(String.format("%.2f", statPref.getFloat(str, 0)));
     }
 }

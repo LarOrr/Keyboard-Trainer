@@ -39,122 +39,127 @@
         app:cardElevation="3dp">
 
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:orientation="vertical"
-            tools:context=".ChooseModeActivity">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content">
-                <TextView android:background="@drawable/placeholder_rev" android:layout_width="20dp" android:layout_height="match_parent"/>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:textColor="@color/white" android:background="@color/darkGray" android:padding="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="Statistics"/>
-                <TextView android:background="@drawable/placeholder" android:layout_width="20dp" android:layout_height="match_parent"/>
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                tools:context=".ChooseModeActivity">
+
+                <LinearLayout android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:background="@drawable/placeholder_rev" android:layout_width="20dp" android:layout_height="match_parent"/>
+                    <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:textColor="@color/white" android:background="@color/darkGray" android:padding="6dp" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Statistics"/>
+                    <TextView android:background="@drawable/placeholder" android:layout_width="20dp" android:layout_height="match_parent"/>
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Total characters entered: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/totalChar"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Total correct characters: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/correctChar"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Total chars in char mode: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/totalCharMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Correct chars in char mode: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/correctCharMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Total words: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/totalWords"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Correct words: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/correctWords"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Total time in char mode: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/timeCharMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Total time in word mode: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/timeWordMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Record speed in char mode: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/recordSpeedCharMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Record speed in word mode: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/recordSpeedWordMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
             </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Total characters entered: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/totalChar"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Total correct characters: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/correctChar"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Total chars in char mode: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/totalCharMode"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Correct chars in char mode: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/correctCharMode"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Total words: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/totalWords"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Correct words: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/correctWords"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Total time in char mode: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/timeCharMode"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Total time in word mode: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/timeWordMode"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Record speed in char mode: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/recordSpeedCharMode"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-            <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
-                <TextView
-                    android:text="Record speed in word mode: "
-                    style="@style/statText" />
-                <TextView
-                    android:id="@+id/recordSpeedWordMode"
-                    android:text="0"
-                    style="@style/statValue" />
-            </LinearLayout>
-
-        </LinearLayout>
+        </ScrollView>
     </android.support.v7.widget.CardView>
 </LinearLayout>
