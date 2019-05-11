@@ -67,10 +67,12 @@ public class PracticeActivity extends AppCompatActivity {
     int correctWords = 0;
     int totalWords = 0;
 
+    //Default layout
+    int layout = R.layout.activity_practice;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_practice);
+        setContentView(layout);
         ButterKnife.bind(this);
         COLOR_DEFAULT = tvCurrentText.getCurrentTextColor();
         etUserInput.requestFocus();

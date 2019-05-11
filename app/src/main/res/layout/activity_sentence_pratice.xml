@@ -1,0 +1,225 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".SentencePraticeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp">
+
+        <TextView
+            style="@style/tv1"
+            android:text="Correct"
+            android:textAlignment="center" />
+
+        <TextView
+            style="@style/tv1"
+            android:text="Wrong"
+            android:textAlignment="center" />
+
+        <TextView
+            style="@style/tv1"
+            android:text="Accuracy"
+            android:textAlignment="center" />
+
+        <TextView
+            style="@style/tv1"
+            android:layout_weight="1.1"
+            android:text="Time"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:orientation="horizontal"
+        android:paddingBottom="3dp">
+
+        <TextView
+            android:id="@+id/tvCorrectWordsCount"
+            style="@style/tv2colorAccent"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/tvWrongWordsCount"
+            style="@style/tv2colorAccent"
+            android:textAlignment="center"
+            android:textColor="@color/red" />
+
+        <TextView
+            android:id="@+id/tvShowAccuracy"
+            style="@style/tv2colorAccent"
+            android:textAlignment="center" />
+
+        <Chronometer
+            android:id="@+id/chrTime"
+            style="@style/tv2colorAccent"
+            android:layout_weight="1.1"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvInfoContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="end"
+        android:text="Press space to move to the next word "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15sp"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+
+        <TextView
+            android:id="@+id/tvPrevText"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="start"
+            android:fadeScrollbars="true"
+            android:gravity="bottom|right|end"
+            android:scrollbars="horizontal"
+            android:singleLine="true"
+            android:text="Prev text"
+            android:textColor="@color/gray"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:id="@+id/tvCurrentText"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center_horizontal|center"
+            android:maxLines="1"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:text="Current text"
+            android:textAlignment="center"
+            android:textColor="@color/defTextColor"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvNextText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_weight="1"
+            android:fadeScrollbars="true"
+            android:gravity="top|left"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Next text"
+            android:textColor="@color/gray"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <com.orr.lar.keyboardtrainer.views.CustomEditText
+        android:id="@+id/etUserInput"
+        android:layout_width="261dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:focusableInTouchMode="true"
+        android:hint="Type here"
+        android:imeOptions="actionDone"
+        android:inputType="textNoSuggestions|textVisiblePassword"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:id="@+id/llAnalysis"
+        style="@style/wMPhWC"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    style="@style/wMPhWC"
+                    android:text="Original Text:"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:id="@+id/tvOriginalString"
+                    style="@style/wMPhWC"
+                    android:fadeScrollbars="false"
+                    android:gravity="bottom"
+                    android:hint="Original Text"
+                    android:maxLines="100"
+                    android:scrollbars="vertical"
+                    android:textAlignment="center"
+                    android:textColor="#333"
+                    android:textSize="21dp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    style="@style/wMPhWC"
+                    android:text="Typed Text:"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:id="@+id/tvEnteredString"
+                    style="@style/wMPhWC"
+                    android:fadeScrollbars="false"
+                    android:gravity="bottom"
+                    android:hint="Original Text"
+                    android:maxLines="100"
+                    android:scrollbars="vertical"
+                    android:textAlignment="center"
+                    android:textColor="#333"
+                    android:textSize="21dp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
+</LinearLayout>

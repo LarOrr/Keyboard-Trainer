@@ -3,8 +3,8 @@ package com.orr.lar.keyboardtrainer;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -46,7 +46,7 @@ public class ChooseModeActivity extends AppCompatActivity {
     }
 
     @OnItemSelected(R.id.spLanguages)
-    public void languageChanged(AdapterView<?> parentView, View selectedItemView, int position, long id){
+    public void languageChanged(AdapterView<?> parentView, View selectedItemView, int position, long id) {
         SharedPreferences.Editor editor = appPrefs.edit();
         //Getting value for spinner:
 //        int spinner_pos = spLanguages.getSelectedItemPosition();
@@ -78,9 +78,16 @@ public class ChooseModeActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.buttonStartWordPractice)
-    public void startStartWordPractice(View view){
+    public void startStartWordPractice(View view) {
         Intent intent = new Intent(ChooseModeActivity.this,
                 WordPracticeActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.buttonStartSentencePractice)
+    public void startSentencePractice() {
+        Intent intent = new Intent(ChooseModeActivity.this,
+                SentencePraticeActivity.class);
         startActivity(intent);
     }
 }

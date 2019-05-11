@@ -1,9 +1,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:id="@+id/llMainLayout"
     android:focusable="true" android:focusableInTouchMode="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".PracticeActivity">
 
             <LinearLayout android:orientation="horizontal" android:background="@color/colorAccent" android:paddingBottom="2dp" android:layout_width="match_parent" android:layout_height="wrap_content">
                 <TextView android:text="Correct" android:textAlignment="center" style="@style/tv1"/>
@@ -40,13 +42,13 @@
 
     <com.orr.lar.keyboardtrainer.views.CustomEditText
         android:id="@+id/etUserInput"
-        android:layout_width="177dp"
+        android:layout_width="261dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:focusableInTouchMode="true"
         android:hint="Type here"
         android:imeOptions="actionDone"
         android:inputType="textNoSuggestions|textVisiblePassword"
-        android:focusableInTouchMode="true"
         android:textAlignment="center"
         android:textSize="30sp" />
 
@@ -54,13 +56,13 @@
                 <android.support.v7.widget.CardView android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_margin="5dp">
                     <LinearLayout android:orientation="vertical" android:background="#ffffff" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
                         <TextView android:textSize="22dp" android:textColor="@color/colorPrimary" android:text="Original Text:" android:textAlignment="center" style="@style/wMPhWC"/>
-                        <TextView android:textSize="21dp" android:gravity="bottom" android:textColor="#333" android:id="@+id/tvOriginalString" android:scrollbars="vertical" android:hint="Original Text" android:maxLines="3" android:fadeScrollbars="false" android:textAlignment="center" style="@style/wMPhWC"/>
+                        <TextView android:textSize="21dp" android:gravity="bottom" android:textColor="#333" android:id="@+id/tvOriginalString" android:scrollbars="vertical" android:hint="Original Text" android:maxLines="100" android:fadeScrollbars="false" android:textAlignment="center" style="@style/wMPhWC"/>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
                 <android.support.v7.widget.CardView android:layout_gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="20dp">
                     <LinearLayout android:orientation="vertical" android:background="#ffffff" android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
                         <TextView android:textSize="22dp" android:textColor="@color/colorPrimary" android:text="Typed Text:" android:textAlignment="center" style="@style/wMPhWC"/>
-                        <TextView android:textSize="21dp" android:gravity="bottom" android:textColor="#333" android:id="@+id/tvEnteredString" android:scrollbars="vertical" android:hint="Original Text" android:maxLines="3" android:fadeScrollbars="false" android:textAlignment="center" style="@style/wMPhWC"/>
+                        <TextView android:textSize="21dp" android:gravity="bottom" android:textColor="#333" android:id="@+id/tvEnteredString" android:scrollbars="vertical" android:hint="Original Text" android:maxLines="100" android:fadeScrollbars="false" android:textAlignment="center" style="@style/wMPhWC"/>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
             </LinearLayout>

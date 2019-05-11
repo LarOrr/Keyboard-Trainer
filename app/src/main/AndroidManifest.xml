@@ -30,7 +30,8 @@
         <activity android:name=".PracticeActivity" />
         <activity android:name=".CharPracticeActivity" />
         <activity android:name=".WordPracticeActivity" />
-        <activity android:name=".StatisticsActivity"></activity>
+        <activity android:name=".StatisticsActivity" />
+        <activity android:name=".SentencePraticeActivity"></activity>
     </application>
 
 </manifest>

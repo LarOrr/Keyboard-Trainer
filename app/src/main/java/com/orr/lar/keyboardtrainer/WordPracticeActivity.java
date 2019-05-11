@@ -21,7 +21,7 @@ import butterknife.OnTextChanged;
 public class WordPracticeActivity extends PracticeActivity {
     //Words from file
     List<String> wordList;
-    boolean isLastCorrect = true;
+    boolean isLastCharCorrect = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class WordPracticeActivity extends PracticeActivity {
         if(count == 0 && deleted != 1){
             return;
         } else if (len == 0){
-            isLastCorrect = true;
+            isLastCharCorrect = true;
             paintDefault();
             return;
         }
@@ -86,7 +86,7 @@ public class WordPracticeActivity extends PracticeActivity {
             totalChars += len - 1;
             totalWords++;
             //If correct
-            if(isLastCorrect && len - 1 == currentText.length()){
+            if(isLastCharCorrect && len - 1 == currentText.length()){
                 correctChars += len - 1;
                 correctWords++;
                 addTextToHistory(true, text.trim());
@@ -102,16 +102,16 @@ public class WordPracticeActivity extends PracticeActivity {
         if(len > currentText.length()){
             paintTheWord(COLOR_WRONG, 0, currentText.length() - 1);
         } else if(deleted == 0){
-            if(text.charAt(lastCharPos) == currentText.charAt(lastCharPos) && isLastCorrect){
+            if(text.charAt(lastCharPos) == currentText.charAt(lastCharPos) && isLastCharCorrect){
                     paintTheWord(COLOR_CORRECT, 0, lastCharPos);
             } else {
                 paintTheWord(COLOR_WRONG, 0, lastCharPos);
-                isLastCorrect = false;
+                isLastCharCorrect = false;
             }
             //if char is deleted
         } else if(deleted > 0){
             if(text.toString().equals(currentText.substring(0, len))){
-                isLastCorrect = true;
+                isLastCharCorrect = true;
                 paintTheWord(COLOR_CORRECT, 0, lastCharPos);
             } else {
                 paintDefault();
@@ -164,7 +164,7 @@ public class WordPracticeActivity extends PracticeActivity {
 //        editable = editable.toString();
 //        int length = editable.length();
 //        String obj = this.f1678a.etUserInput.getText().toString();
-        isLastCorrect = true;
+        isLastCharCorrect = true;
         currentText = wordList.get(random.nextInt(wordList.size()));
         paintDefault();
     }
