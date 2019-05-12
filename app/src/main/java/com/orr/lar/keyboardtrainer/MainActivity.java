@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showAbout(MenuItem item) {
-    // ToDO add eng translation!
         AlertDialog.Builder dialog = new
                 AlertDialog.Builder(MainActivity.this);
         try {

@@ -11,6 +11,7 @@
 
     <string name="chars_mode_short_name">chars</string>
     <string name="word_mode_short_name">words</string>
+    <string name="sent_mode_short_name">sents</string>
 
     <string name="correct_chars_all">correct_chars_all</string>
     <string name="total_chars_all">total_chars_all</string>

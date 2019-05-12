@@ -34,8 +34,7 @@ public class SentencePraticeActivity extends WordPracticeActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         tvCurrentText.setTextSize(30);
-        //! Total words == count of spaces
-        // textsList - это из current article!
+        practiceModeName = getString(R.string.sent_mode_short_name);
     }
 
     @Override

@@ -23,6 +23,7 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView totalChar;
     @BindView(R.id.correctChar)
     TextView correctChar;
+    //For both word and sent!!!
     @BindView(R.id.totalWords)
     TextView totalWords;
     @BindView(R.id.correctWords)
@@ -39,9 +40,15 @@ public class StatisticsActivity extends AppCompatActivity {
     TextView timeCharMode;
     @BindView(R.id.timeWordMode)
     TextView timeWordMode;
+    @BindView(R.id.timeSentMode)
+    TextView timeSentMode;
+    @BindView(R.id.recordSpeedSentMode)
+    TextView recordSpeedSentMode;
 
     String language;
     SharedPreferences statPref;
+    int correctWordsCount = 0;
+    int totalWordsCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +69,9 @@ public class StatisticsActivity extends AppCompatActivity {
     }
 
     void updateTable() {
+        correctWordsCount = 0;
+        totalWordsCount = 0;
+
         //General
         String str = language + "_" + getString(R.string.correct_chars_all);
         correctChar.setText(String.valueOf(statPref.getInt(str, 0)));
@@ -72,6 +82,11 @@ public class StatisticsActivity extends AppCompatActivity {
         //Mode
         updateCharMode();
         updateWordsMode();
+        updateSentMode();
+
+        //Sent and Word
+        correctWords.setText(String.valueOf(correctWordsCount));
+        totalWords.setText(String.valueOf(totalWordsCount));
     }
 
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
@@ -95,11 +110,12 @@ public class StatisticsActivity extends AppCompatActivity {
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
     void updateWordsMode() {
         String practiceModeName = getString(R.string.word_mode_short_name);
+
         String str = language + "_" + getString(R.string.correct_ans_mode) + "_" + practiceModeName;
-        correctWords.setText(String.valueOf(statPref.getInt(str, 0)));
+        correctWordsCount += statPref.getInt(str, 0);
 
         str = language + "_" + getString(R.string.total_ans_mode) + "_" + practiceModeName;
-        totalWords.setText(String.valueOf(statPref.getInt(str, 0)));
+        totalWordsCount += statPref.getInt(str, 0);
 
         str = language + "_" + getString(R.string.total_time_mode) + "_" + practiceModeName;
         long millsec = statPref.getLong(str, 0);
@@ -107,5 +123,22 @@ public class StatisticsActivity extends AppCompatActivity {
 
         str = language + "_" + getString(R.string.record_speed_mode) + "_" + practiceModeName;
         recordSpeedWordMode.setText(String.format("%.2f", statPref.getFloat(str, 0)));
+    }
+
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
+    void updateSentMode() {
+        String practiceModeName = getString(R.string.sent_mode_short_name);
+        String str = language + "_" + getString(R.string.correct_ans_mode) + "_" + practiceModeName;
+        correctWordsCount += statPref.getInt(str, 0);
+
+        str = language + "_" + getString(R.string.total_ans_mode) + "_" + practiceModeName;
+        totalWordsCount += statPref.getInt(str, 0);
+
+        str = language + "_" + getString(R.string.total_time_mode) + "_" + practiceModeName;
+        long millsec = statPref.getLong(str, 0);
+        timeSentMode.setText(String.valueOf(millsec / 1000 / 60) + ":" + String.valueOf(millsec / 1000 % 60));
+
+        str = language + "_" + getString(R.string.record_speed_mode) + "_" + practiceModeName;
+        recordSpeedSentMode.setText(String.format("%.2f", statPref.getFloat(str, 0)));
     }
 }

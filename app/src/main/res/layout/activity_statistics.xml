@@ -141,6 +141,16 @@
 
                 <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
                     <TextView
+                        android:text="Total time in sentences: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/timeSentMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
                         android:text="Record speed in char mode: "
                         style="@style/statText" />
                     <TextView
@@ -155,6 +165,16 @@
                         style="@style/statText" />
                     <TextView
                         android:id="@+id/recordSpeedWordMode"
+                        android:text="0"
+                        style="@style/statValue" />
+                </LinearLayout>
+
+                <LinearLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="match_parent">
+                    <TextView
+                        android:text="Record speed in sentences: "
+                        style="@style/statText" />
+                    <TextView
+                        android:id="@+id/recordSpeedSentMode"
                         android:text="0"
                         style="@style/statValue" />
                 </LinearLayout>

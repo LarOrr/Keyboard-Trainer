@@ -20,8 +20,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     @Override
     protected void onCreate(final Bundle savedInstanceState)
     {
-        //ToDO add language
-        //ToDO add language text
+        //ToDO delete this activity
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     }
