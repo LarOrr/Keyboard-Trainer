@@ -57,6 +57,7 @@ public class PracticeActivity extends AppCompatActivity {
     //------------------------
     boolean isChronometerRunning = false;
     String language;
+    //Text that user needs to input now
     String currentText;
     SharedPreferences appPref;
     SharedPreferences statPref;
@@ -64,8 +65,8 @@ public class PracticeActivity extends AppCompatActivity {
     Random random = new Random();
     int correctChars = 0;
     int totalChars = 0;
-    int correctWords = 0;
-    int totalWords = 0;
+    int correctAnswers = 0;
+    int totalAnswers = 0;
 
     //Default layout
     int layout = R.layout.activity_practice;
@@ -126,8 +127,8 @@ public class PracticeActivity extends AppCompatActivity {
                 AlertDialog.Builder(PracticeActivity.this);
 
         StringBuilder sb = new StringBuilder();
-        sb.append("Total: ").append(totalWords);
-        sb.append("\nCorrect: ").append(correctWords);
+        sb.append("Total: ").append(totalAnswers);
+        sb.append("\nCorrect: ").append(correctAnswers);
 //        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("mm:ss");
 //        sdf.
         sb.append("\nTime: ").append((SystemClock.elapsedRealtime() - chrTime.getBase()) / 1000).append(" seconds");
@@ -162,10 +163,10 @@ public class PracticeActivity extends AppCompatActivity {
         edit.putInt(str, statPref.getInt(str, 0) + totalChars);
         //Mode
         str = language + "_" + getString(R.string.correct_ans_mode) + "_" + practiceModeName;
-        edit.putInt(str, statPref.getInt(str, 0) + correctWords);
+        edit.putInt(str, statPref.getInt(str, 0) + correctAnswers);
 
         str = language + "_" + getString(R.string.total_ans_mode) + "_" + practiceModeName;
-        edit.putInt(str, statPref.getInt(str, 0) + totalWords);
+        edit.putInt(str, statPref.getInt(str, 0) + totalAnswers);
 
         str = language + "_" + getString(R.string.total_time_mode) + "_" + practiceModeName;
         edit.putLong(str, statPref.getLong(str, 0) + SystemClock.elapsedRealtime() - chrTime.getBase());
@@ -185,9 +186,9 @@ public class PracticeActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     void updateTable() {
-        tvWrongWordsCount.setText(Integer.toString(totalWords - correctWords));
-        tvCorrectWordsCount.setText(Integer.toString(correctWords));
-        String acc = Integer.toString((int)(100 * ((double)correctWords / totalWords))) + "%";
+        tvWrongWordsCount.setText(Integer.toString(totalAnswers - correctAnswers));
+        tvCorrectWordsCount.setText(Integer.toString(correctAnswers));
+        String acc = Integer.toString((int)(100 * ((double) correctAnswers / totalAnswers))) + "%";
         tvShowAccuracy.setText(acc);
     }
 

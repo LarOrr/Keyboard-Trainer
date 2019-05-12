@@ -19,9 +19,10 @@ import butterknife.ButterKnife;
 import butterknife.OnTextChanged;
 
 public class WordPracticeActivity extends PracticeActivity {
-    //Words from file
-    List<String> wordList;
+    //List of texts from file; words in this situation
+    List<String> textsList;
     boolean isLastCharCorrect = true;
+    String fileName = "_words.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,33 +35,9 @@ public class WordPracticeActivity extends PracticeActivity {
         generateNextWord();
     }
 
-//    @OnTextChanged(value = R.id.etUserInput, callback = AFTER_TEXT_CHANGED)
-//    void wordInputedTest(Editable s) {
-//        String text = etUserInput.getText().toString();
-//        if(text.length() == 0)
-//            return;
-//        totalChars++;
-//        if(text.charAt(0) == currentChar){
-//            correctChars++;
-//        } //else just totalChars++
-////        generateNextChar();
-////
-////        updateTable();
-//
-////        etUserInput.setText("");
-//
-//    }
-
     //CharSequence text, int start, int deleted, int count
     @OnTextChanged(R.id.etUserInput)
     void onTextInputed(CharSequence s, int start, int deleted, int count) {
-//        Toast toast = Toast.makeText(this, "Could not load dictionary", Toast.LENGTH_LONG);
-//        toast.show();
-        //For debug
-//        System.out.println("int text " + text.toString());
-//        System.out.println("int lastCharPos " + lastCharPos);
-//        System.out.println("int deleted " + deleted);
-//        System.out.println("int count " + count);
 
         //text is current text in editText
         //lastCharPos is current char position if added char !!!OR position of deleted char
@@ -77,18 +54,20 @@ public class WordPracticeActivity extends PracticeActivity {
             return;
         } else if (len == 0){
             isLastCharCorrect = true;
-            paintDefault();
+            setNewWord();
             return;
         }
 
         //Next word
         if(text.charAt(len - 1) == ' '){
-            totalChars += len - 1;
-            totalWords++;
+//            totalChars += len - 1;
+//            totalAnswers++;
+            addTotalScores(len);
             //If correct
             if(isLastCharCorrect && len - 1 == currentText.length()){
-                correctChars += len - 1;
-                correctWords++;
+//                correctChars += len - 1;
+//                correctAnswers++;
+                addCorrectScores(len);
                 addTextToHistory(true, text.trim());
             } else {
                 addTextToHistory(false, text.trim());
@@ -114,36 +93,27 @@ public class WordPracticeActivity extends PracticeActivity {
                 isLastCharCorrect = true;
                 paintTheWord(COLOR_CORRECT, 0, lastCharPos);
             } else {
-                paintDefault();
+                setNewWord();
                 paintTheWord(COLOR_WRONG, 0, lastCharPos);
             }
         }
 
-        //
-//        boolean isNewChar = deleted < text.length();
-//        return;
-//        String text = etUserInput.getText().toString();
-//        if(text.length() == 0)
-//            return;
-//        totalChars++;
-//        if(text.charAt(0) == currentChar){
-//            correctChars++;
-//            tvEnteredString.append(text);
-//            tvEnteredString.append(" ");
-//        } else {
-//            Spannable coloredText = new SpannableString(text);
-//            coloredText.setSpan(new ForegroundColorSpan(Color.RED), 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//            tvEnteredString.append(coloredText);
-//            tvEnteredString.append(" ");
-//        }
-//        tvOriginalString.append(String.valueOf(currentChar) + " ");
-//        generateNextWord();
-//        updateTable();
-//        //At the end to not trigger charInputed again!!!
-//        //Waits 275 millisecs deleted deleting the text
-//        (new Handler()).postDelayed(() -> {
-//            etUserInput.setText("");
-//        }, 200);
+    }
+
+    /**
+     * @param userInputLen Length including space at the end
+     */
+    void addTotalScores(int userInputLen){
+        totalChars += userInputLen - 1;
+        totalAnswers++;
+    }
+
+    /**
+     * @param userInputLen Length including space at the end
+     */
+    void addCorrectScores(int userInputLen){
+        correctChars += userInputLen - 1;
+        correctAnswers++;
     }
 
     /**
@@ -160,31 +130,20 @@ public class WordPracticeActivity extends PracticeActivity {
     }
 
     void generateNextWord(){
-//        StringBuilder stringBuilder;
-//        editable = editable.toString();
-//        int length = editable.length();
-//        String obj = this.f1678a.etUserInput.getText().toString();
         isLastCharCorrect = true;
-        currentText = wordList.get(random.nextInt(wordList.size()));
-        paintDefault();
+        currentText = textsList.get(random.nextInt(textsList.size()));
+        setNewWord();
     }
 
-    void paintDefault(){
+    void setNewWord(){
         paintTheWord(COLOR_DEFAULT, 0, currentText.length() - 1);
     }
-//    void removeSpan(){
-//        Spannable str = tvCurrentText.getText();
-//        Object spansToRemove[] = str.getSpans(0, tvCurrentText.length(), Object.class);
-//        for(Object span: spansToRemove){
-//            if(span instanceof CharacterStyle)
-//                str.removeSpan(span);
-//        }
-//    }
+
     void extractWords() {
         AssetManager assetManager = getAssets();
         InputStream inputStream = null;
         try {
-            inputStream = assetManager.open(language + "_words.txt");
+            inputStream = assetManager.open(language + fileName);
         } catch (IOException e) {
             Toast toast = Toast.makeText(this, "Could not load dictionary", Toast.LENGTH_LONG);
             toast.show();
@@ -192,13 +151,13 @@ public class WordPracticeActivity extends PracticeActivity {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(inputStream));
         String line;
-        wordList = new ArrayList<>();
+        textsList = new ArrayList<>();
         try {
             while ((line = in.readLine()) != null) {
                 String word = line.trim();
                 if(word.equals(""))
                     continue;
-                wordList.add(word);
+                textsList.add(word);
             }
         } catch(IOException ioe) {
             Toast toast = Toast.makeText(this, "Could not Save words into buffer", Toast.LENGTH_LONG);

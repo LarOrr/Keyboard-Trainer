@@ -73,10 +73,10 @@ public class CharPracticeActivity extends PracticeActivity {
         if(text.length() == 0)
             return;
         totalChars++;
-        totalWords++;
+        totalAnswers++;
         if(text.charAt(0) == currentText.charAt(0)){
             correctChars++;
-            correctWords++;
+            correctAnswers++;
             addTextToHistory(true, text);
         } else {
             addTextToHistory(false, text);
