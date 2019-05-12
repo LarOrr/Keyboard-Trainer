@@ -11,6 +11,19 @@
     tools:showIn="@layout/activity_main">
 
 
+        <!--<TextView-->
+            <!--android:id="@+id/textView3"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_marginStart="156dp"-->
+            <!--android:layout_marginTop="382dp"-->
+            <!--android:drawableBottom="@drawable/ic_keyboard_48dp"-->
+            <!--android:fontFamily="sans-serif-smallcaps"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:textSize="35sp" />-->
+
         <Button
             android:id="@+id/buttonPlay"
             android:layout_width="275dp"

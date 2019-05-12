@@ -63,12 +63,12 @@ public class ChooseModeActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.buttonEnterText)
-    public void openEnterText(View view) {
-        Intent intent = new Intent(ChooseModeActivity.this,
-                EnterTextActivity.class);
-        startActivity(intent);
-    }
+//    @OnClick(R.id.buttonEnterText)
+//    public void openEnterText(View view) {
+//        Intent intent = new Intent(ChooseModeActivity.this,
+//                EnterTextActivity.class);
+//        startActivity(intent);
+//    }
 
     @OnClick(R.id.buttonStartCharPractice)
     public void startCharPractice(View view) {

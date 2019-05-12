@@ -37,7 +37,7 @@ public class WordPracticeActivity extends PracticeActivity {
 
     //CharSequence text, int start, int deleted, int count
     @OnTextChanged(R.id.etUserInput)
-    void onTextInputed(CharSequence s, int start, int deleted, int count) {
+    void onTextChanged(CharSequence s, int start, int deleted, int count) {
 
         //text is current text in editText
         //lastCharPos is current char position if added char !!!OR position of deleted char

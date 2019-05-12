@@ -57,7 +57,7 @@ public class SentencePraticeActivity extends WordPracticeActivity {
         //text will be set to view in setNewWord
         currentText = words[wordNumber];
         //endIndex in substring excluding
-        String prevText = "   ";
+
         tvPrevText.setText(currentArticle.substring(0, wordStartIndex));
         tvNextText.setText(currentArticle.substring(wordEndIndex + 1));
 //        } else {

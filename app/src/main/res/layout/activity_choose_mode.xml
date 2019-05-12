@@ -65,7 +65,7 @@
             style="@style/selectButton"
             android:id="@+id/buttonStartWordPractice"
             android:layout_gravity="center"
-            android:drawableStart="@drawable/ic_keyboard_48dp"
+            android:drawableStart="@drawable/ic_abc_block"
             android:text="Words"
             />
 
@@ -73,16 +73,16 @@
                 style="@style/selectButton"
                 android:id="@+id/buttonStartSentencePractice"
                 android:layout_gravity="center"
-                android:drawableStart="@drawable/ic_keyboard_48dp"
+                android:drawableStart="@drawable/ic_document"
                 android:text="Sentences"
                 />
 
-            <Button
-                style="@style/selectButton"
-                android:id="@+id/buttonEnterText"
-                android:layout_gravity="center"
-                android:text="@string/enter_text"
-                />
+            <!--<Button-->
+                <!--style="@style/selectButton"-->
+                <!--android:id="@+id/buttonEnterText"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="@string/enter_text"-->
+                <!--/>-->
             <!--android:background="@drawable/textview_border"-->
         </LinearLayout>
 </android.support.v7.widget.CardView>
